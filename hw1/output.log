@@ -1,0 +1,141 @@
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2019/dev/Debian) (preloaded format=xelatex 2019.9.8)  6 OCT 2019 21:42
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**output.tex
+(./output.tex
+LaTeX2e <2018-12-01>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count88
+\float@exts=\toks14
+\float@box=\box27
+\@float@everytoks=\toks15
+\@floatcapt=\box28
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 99.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+No file output.aux.
+\openout1 = `output.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 13.
+
+Overfull \hbox (6.8489pt too wide) in paragraph at lines 32--33
+[]\TU/lmtt/m/n/10 RESIZE_RATIO \TU/lmr/m/n/10 : Resize the image. \TU/lmtt/m/n/
+10 New_size = old_size / RESIZE_RATIO 
+ []
+
+[1
+
+]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 62.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 62.
+
+Overfull \hbox (1.285pt too wide) in paragraph at lines 61--66
+[]\TU/lmtt/m/n/10 readImage( filePath, rerize = 1 )\TU/lmr/m/n/10 : Read image 
+and transform it into
+ []
+
+
+Overfull \hbox (2.43501pt too wide) in paragraph at lines 73--83
+[]\TU/lmtt/m/n/10 linify( imageArray, filterStrength, fastMode = False ) \TU/lm
+r/m/n/10 : use the
+ []
+
+
+Overfull \hbox (16.0pt too wide) in paragraph at lines 98--105
+[]\TU/lmtt/m/n/10 draw( figurePath, filterStrength = 1.5, fastMode = False, res
+ize
+ []
+
+
+Overfull \hbox (3.88402pt too wide) in paragraph at lines 98--105
+\TU/lmr/m/n/10 value \TU/lmtt/m/n/10 False\TU/lmr/m/n/10 ), resize ratio, and a
+ boolean \TU/lmtt/m/n/10 wait\TU/lmr/m/n/10 (default value \TU/lmtt/m/n/10 True
+\TU/lmr/m/n/10 )specifying
+ []
+
+File: flower.bmp Graphic file (type bmp)
+<flower.bmp>
+[2]
+File: full.png Graphic file (type bmp)
+<full.png>
+File: ./simple1.png Graphic file (type bmp)
+<./simple1.png>
+ [3]
+File: ./simple4.png Graphic file (type bmp)
+<./simple4.png>
+ [4]
+File: ./simple10.png Graphic file (type bmp)
+<./simple10.png>
+ [5] [6] (./output.aux) ) 
+Here is how much of TeX's memory you used:
+ 711 strings out of 494394
+ 8987 string characters out of 6163320
+ 73118 words of memory out of 5000000
+ 4713 multiletter control sequences out of 15000+600000
+ 6440 words of font info for 31 fonts, out of 8000000 for 9000
+ 286 hyphenation exceptions out of 8191
+ 25i,6n,19p,286b,199s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on output.pdf (6 pages).

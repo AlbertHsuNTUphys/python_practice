@@ -1,0 +1,11 @@
+\BOOKMARK [1][-]{section.1}{Program\040Description}{}% 1
+\BOOKMARK [1][-]{section.2}{Usage}{}% 2
+\BOOKMARK [1][-]{section.3}{Functions\040and\040Classes}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Functions}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Classes\040and\040NamedTuples}{section.3}% 5
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Card}{subsection.3.2}% 6
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Bid}{subsection.3.2}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Hand}{subsection.3.2}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.4}{Deck}{subsection.3.2}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.5}{Auction}{subsection.3.2}% 10
+\BOOKMARK [3][-]{subsubsection.3.2.6}{Tricks}{subsection.3.2}% 11

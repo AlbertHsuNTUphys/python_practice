@@ -1,0 +1,209 @@
+\documentclass[12pt]{article}
+
+%Packages BEGIN
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+
+\lstset{
+basicstyle=\small\ttfamily,
+breaklines=true
+} 
+
+\definecolor{Light}{gray}{.90}
+\sethlcolor{Light}
+
+\let\OldTexttt\texttt
+\newcommand{\code}[1]{\texttt{\hl{#1}}} 
+
+%Packages END
+
+\title{README for \texttt{Contract Bridge Simulator}, Computer Programming HW3}
+\author{B07202020\\Hao-Chien Wang}
+
+\begin{document}
+\maketitle
+
+\section{Program Description}%
+\label{sec:program_description}
+
+This program simulate a contract bridge game. It doesn't have an AI to play with
+the user so it is not really a game. The rules of contract bridge can be found
+below, with some definitions of the terms that will be used below (such as 
+bids and trumpsuit):\\
+
+\url{https://en.wikipedia.org/wiki/Contract_bridge}  \\
+
+The computer will deal the cards and show the gaming process. The user enters
+the bid he wants to bid and the card he want to play. The computer will show
+error messages when an invalid operation is done.
+
+
+\section{Usage}%
+\label{sec:usage}
+Run \code{python3 main.py}. The players are represented by N, E, S and W to
+indicate North, East, South and West, respectively. The game autimatically starts
+and deal the cards. N always starts the bidding. During the bidding stage, enter
+number between 1 and 7 to indicate levels (when prompted), and use \code{s},
+\code{h}, \code{d}, \code{c}, \code{nt} to represent spades, hearts, diamonds
+and no trump. Double and redouble are not yet supported. Passing out will
+result in an custom exception.\\
+\indent When the bidding ended and the final contract is determined, the game
+starts. Each player enter a string started by the first letter of a suit and 
+followed by the rank to represent the card he want to play (e.g. \code{h4} means
+4 of hearts, \code{sa} means ace of spades, \code{d10} means 10 of diamonds,
+\code{ck} means king of clubs, etc) . Cards that are
+against the rules (e.g. cards that one doesn't own or doesn't follow the leading
+suit) are not accepted. The game ends when the declarer succeeds or fail to make
+the contract.
+
+
+\section{Functions and Classes}%
+\label{sec:classes}
+
+All functions and classes are defined in \code{ob.py}. \code{main.py} imports
+them and run the game. All the functions, classes and their definitions are
+listed below.
+
+\subsection{Functions}%
+\label{sub:functions}
+
+\noindent \textbf{cardKey}: Defines the value of cards, in order to compare.
+When both \code{trumpSute} and \code{leading\_suit} are \code{None}, the function
+is used to sort the cards. \code{leadingSuit} can be either \code{Spades},
+\code{Hearts}, \code{Diamonds} or \code{Clubs}. \code{trumpSuit} can be all the 
+suits above or \code{NoTrump}. The value of a normal card is an integer between
+0 and 12, while A has 12 and 2 has 0. A trump suit card has an extra value of
+13. Any card that doesn't follow the leading suit has a value of 0.
+
+\subsection{Classes and NamedTuples}%
+\label{sub:classes}
+
+\subsubsection{Card}%
+\label{ssub:card}
+A named tuple representing cards, with slots \code{['rank', 'suit']}.\\
+Example: \code{(rank='k', suit='Spades')}
+
+\subsubsection{Bid}%
+\label{ssub:bid}
+A named tuple representing bids, with slots \code{['level', 'suit']}\\
+Example: \code{(level=3, suit='NoTrump')}, \code{(level=4, suit='Diamonds')}
+
+
+\subsubsection{Hand}%
+\label{ssub:hand}
+
+This class represents a hand of cards.\\
+
+\textbf{Attributes}:\\
+\begin{itemize}
+\item \code{cards}: A dictionary that maps strings of the names of suits to lists
+containing the cards.
+\end{itemize}
+
+\textbf{Methods}:\\
+\begin{itemize}
+\item \code{\_\_init\_\_}: The constructor requires a list of card
+that is dealt. It is then sorted and saved in a dictionary of lists (self.cards).
+\item \code{\_\_str\_\_}: print all the cards in a more readable way.
+\item \code{has}: to tell whether this player has cards in a certain suit.
+\end{itemize}
+
+\subsubsection{Deck}%
+\label{ssub:deck}
+This class represents a deck of cards. It can shuffle and deal cards.\\
+
+\textbf{Attributes}:\\
+\begin{itemize}
+\item \code{\_cards}: A list to save all cards.
+\end{itemize}
+
+\textbf{Methods}:\\
+\begin{itemize}
+\item \code{\_\_init\_\_}: Constructor to generate all cards.
+\item \code{shuffle}: Shuffle the cards.
+\item \code{deal}: deal cards. return a list of four players (Hand objects)
+	with dealt cards. Sorted by N, E, S, W.
+\end{itemize}
+
+\subsubsection{Auction}%
+\label{ssub:auction}
+This class represent the whole bidding process.\\
+
+\textbf{Attributes}
+\begin{itemize}
+	\item \code{\_bidlist}: A list to save all the bid objects or \code{'pass'}.
+	\item \code{\_declarer}: The declarer. Determined after the bidding is done.
+		initialized with \code{None}.
+	\item \code{\_playerList}: A list to save the hand of the players. Sorted
+		by N, E, S, W.
+\end{itemize}
+\textbf{Methods}
+\begin{itemize}
+	\item \code{\_contractAccepted}: To tell whether the auction has ended and
+		the contract has been determined. That is, a bid is given and all the
+		other three players has bid \code{pass}. Returns \code{True} if so, 
+		\code{False} otherwise.
+	\item \code{\_isLarger}: A function to determine whether a bid is larger 
+		than the last non-pass bid. Returns \code{True} if so, \code{False}
+		otherwise.
+	\item \code{bid}: The method to start bidding. Takes no arguments and 
+		return nothing.
+	\item \code{declarer}: The method to return the declarer. Returns \code{None}
+		if not yet determined.
+	\item \code{\_lastBid}: To find the last non-pass bid. Takes no arguments
+		and return the bid.
+	\item \code{\_newBid}: Starting a new bid. prompts the player to enter
+		the needed information. Returns \code{True} if the bid is successful and
+		\code{False} if the bid is invalid.
+
+\end{itemize}
+
+
+
+
+\subsubsection{Tricks}%
+\label{ssub:tricks}
+
+This class represent the whole playing process, that is, 13 tricks.\\
+
+\textbf{Attributes}
+\begin{itemize}
+	\item \code{\_scoreTable}: A dictionary that maps \code{'EW'} and \code{'NS'}
+		to two lists, storing the tricks they have won.
+	\item \code{\_declarer}: A number saving the declarer. 0, 1, 2, 3 means N,
+		E, S, W, respectively.
+	\item \code{\_playerList}: A list of Hand objects, saving the hands of the
+		players.
+	\item \code{\_cardTable}: A list saving the cards played in each tricks.
+	\item \code{\_trumpSuit}: A string storing the trump suit of the game.
+	\item \code{\_contract}: A bid object saving the final contract.
+	\item \code{\_\_init\_\_}: 
+\end{itemize}
+
+\textbf{Methods}
+\begin{itemize}
+	\item \code{\_\_init\_\_}: Constructor. Takes an auction abject as an argumen
+		and save the required information in the attribute variables.
+	\item \code{declarer}: Returns the declarer of the game in terms of a string.
+		Takes no arguments.
+	\item \code{\_newTrick}: A method to start a new trick. Takes the opener
+		and the number of that trick as arguments. It asks each player to play
+		a card and returns the player taking the trick.
+	\item \code{\_illegalCard}: A method to tell whether a card input is valid.
+		Takes the card, the hand of the player playing that card, and the leading
+		suit of that trick. If the card follows the leading suit and is in the
+		hand, \code{True} is returned. \code{False} otherwise. 
+	\item \code{\_playCard}: Asks the player to play a card. Takes the hand of
+		the player, the number of the player (0 as N and 3 as W), and the leading
+		suit (if the player is not the leader of the suit) as arguments. It calls
+		\code{\_illegalCard} to verify the card, then returns the card.
+	\item \code{play}: The function to call every tricks, and tell whether the
+		game has ended. Takes no argument and returns nothing.
+	
+	
+\end{itemize}
+
+\end{document}
